@@ -4,14 +4,14 @@ const CourseModel = require('../Models/course.model');
 
 router.post('/create', async (req, res) => {
     try {
-      const { course, duration } = req.body;
+      const { course, duration,icon_id } = req.body;
       const existingCourse = await CourseModel.findOne({ course });
   
       if (existingCourse) {
         return res.status(400).json({ error: 'Course already exists' });
       }
   
-      const post = new CourseModel({ course, duration });
+      const post = new CourseModel({ course, duration,icon_id });
       await post.save();
   
       return res.status(200).json({ message: 'Successfully created' });

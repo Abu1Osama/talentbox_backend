@@ -9,6 +9,10 @@ const courseSchema = new mongoose.Schema({
   duration: {
     type: String,
   },
+  icon_id: {
+    type: String,
+  },
+  
 });
 
 module.exports = mongoose.model('Course', courseSchema);
